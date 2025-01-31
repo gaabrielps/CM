@@ -1,0 +1,19 @@
+1. Automatizar checkbox e seletores
+2. Criação de ct para proposta pj
+3. Comandos para criação de propostas com conjuge
+4. Verificação para criar outros comandos em cada página (temos elementos que não manipulamos ainda)
+5. Criação de BDD
+6. Relatorio 
+7. CI/CD
+
+
+
+
+Botões para atualizar seletor:
+
+botão de Continuar/Enviar proposta/Concluido (mesmo botoes em diferentes páginas)
+cy.get('.c-gpDDWG-bFQZQM-color-primary')
+
+botão de aceitar concentimento dos cookies
+ cy.get('#dm876A')
+
