@@ -7,6 +7,7 @@ on:
     branches: [main]
 
   # O que poderá ser feito nessa pipeline. Atualmente apenas rodar os testes
+
 jobs:
 
   cypress-run:
@@ -27,4 +28,5 @@ jobs:
           record: true
         env:
           CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
+
 
