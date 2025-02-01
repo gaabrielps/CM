@@ -5,6 +5,7 @@
 5. Criação de BDD
 6. Relatorio 
 7. CI/CD
+8. Traduzir pra ING
 
 
 

@@ -14,10 +14,8 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './pages/commands'
-import './pages/aboutProportyPage'
-import './pages/contactClient'
-import './pages/rentAndCredit'
+import './pages/formSimulation'
+
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false; // Ignora erros da aplicação

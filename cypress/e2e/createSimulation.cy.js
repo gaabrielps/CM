@@ -1,7 +1,7 @@
 import { slowCypressDown } from 'cypress-slow-down'
 slowCypressDown(600)
 
-describe('Acessando páginas do portal', () => {
+describe('Criando simulação', () => {
     before(() => {
         cy.visit('https://qa-institucional.cashme.com.br/login#ut=CASHMEMBER&ru=https://qa-institucional.cashme.com.br/cashmember&pr=PORTAL_CASHMEMBER')
         cy.get('[data-testid="ds-input-usernameField"]', {timeout:5000}).type('972.807.075-64');
@@ -29,27 +29,19 @@ describe('Acessando páginas do portal', () => {
         cy.get('.styles__Content-sc-197l48d-5 > [data-testid="Link"]',{timeout:5000}).click();
       });
 
-    it('Acessando página de Simulações', () =>{
+    it('Criação da simulação', () =>{
         cy.get('[href="/cashmember/simulacoes"] > .styles__MenuItem-sc-1uwzd7g-5 > .styles__MenuLinkTitle-sc-1uwzd7g-6',{timeout:5000}).invoke('show').click();
         cy.get('[data-testid="PageTitleAndSubtitle"] > [data-testid="Text"]').should('have.text', 'Aqui você pode criar ou editar simulações de crédito.')
-        
+        cy.simulationPF()
     })
 
-    it('Acessando página de propostas', () =>{
-        cy.get('[href="/cashmember/propostas"] > .styles__MenuItem-sc-1uwzd7g-5 > .styles__MenuLinkTitle-sc-1uwzd7g-6',{timeout:5000}).invoke('show').click();
-        cy.get('[data-testid="PageTitleAndSubtitle"] > [data-testid="Text"]').should('have.text', 'Aqui você acompanhar o status de cada proposta.')
 
-
-    })
-
-    it('Acessando página de membros', () =>{
-        cy.get('[href="https://qa-institucional.cashme.com.br/cashmember/membros"] > .styles__MenuItem-sc-1uwzd7g-5 > .styles__MenuLinkTitle-sc-1uwzd7g-6',{timeout:5000}).invoke('show').click();
-        cy.get('[aria-rowindex="1"] > [headers="header-name"] > .sc-93ba81c7-1 > .lhSweR').should('have.text', 'Leonardo Nathan Yago Brito')     
-    })
 
     
 
 })
+
+
 
 
 
