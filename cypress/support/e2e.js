@@ -24,3 +24,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 //simular cursor do mouse
 import 'cypress-real-events/support';
+
+// Importação da lib para usar xpath
+import 'cypress-xpath';
