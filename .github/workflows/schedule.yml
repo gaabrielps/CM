@@ -1,0 +1,34 @@
+# nome da pipeline
+name: first Pipeline
+
+# Em que momento será executado (Nesse caso abaixo, quando fizer um PR para a master será executado)
+on:
+  # Para realizar um agendamento de execução
+  schedule:
+    - cron: '45 18 * * *'
+
+
+  # O que poderá ser feito nessa pipeline. Atualmente apenas rodar os testes
+
+jobs:
+
+  cypress-run:
+    # Máquina que será executada
+    runs-on: windows-latest
+
+    # Passo a passo para rodar os testes
+    # Os steps são comandos que estamos no terminal para executar determinada ação 
+    steps:
+      # Clone do projeto
+      - name: Checkout/ Clone do projeto
+        uses: actions/checkout@v4
+
+    # Execução e configuração do projeto
+      - name: Run testes
+        uses: cypress-io/github-action@v6
+        with:
+          record: true
+        env:
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
+
+
