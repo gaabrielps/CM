@@ -5,7 +5,7 @@ name: first Pipeline
 on:
   # Para realizar um agendamento de execução
   schedule:
-    - cron: '45 18 * * *'
+    - cron: '30 19 * * *'
 
 
   # O que poderá ser feito nessa pipeline. Atualmente apenas rodar os testes
