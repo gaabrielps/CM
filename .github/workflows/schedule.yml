@@ -1,5 +1,5 @@
 # nome da pipeline
-name: first Pipeline
+name: shedule Pipeline
 
 # Em que momento será executado (Nesse caso abaixo, quando fizer um PR para a master será executado)
 on:
