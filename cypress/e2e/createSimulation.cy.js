@@ -29,11 +29,34 @@ describe('Criando simulação', () => {
         cy.get('.styles__Content-sc-197l48d-5 > [data-testid="Link"]',{timeout:5000}).click();
       });
 
-    it('Criação da simulação', () =>{
-        cy.get('[href="/cashmember/simulacoes"] > .styles__MenuItem-sc-1uwzd7g-5 > .styles__MenuLinkTitle-sc-1uwzd7g-6',{timeout:5000}).invoke('show').click();
-        cy.get('[data-testid="PageTitleAndSubtitle"] > [data-testid="Text"]').should('have.text', 'Aqui você pode criar ou editar simulações de crédito.')
-        cy.simulationPF()
+    it('Criação de uma simulação com cliente PF', () =>{
+      cy.get('[data-testid="Link"]').click()
+      cy.newContactPF()
+      cy.selectState()
+      cy.creditAndPropertyValue()
+      cy.SubimitAmdCheckSimulation()
+      
     })
+
+    it('Criação de uma simulação com cliente PJ', () =>{
+      cy.get('[data-testid="Link"]').click()
+      cy.newcontactCNPJ()
+      cy.selectState()
+      cy.creditAndPropertyValue()
+      cy.SubimitAmdCheckSimulation()
+      
+    })
+
+    it('Criação de uma simulação sem dados pessoais', () =>{
+      cy.get('[data-testid="Link"]').click()
+      cy.xpath('//*[(@id = "isFastCalculation")]').click()
+      cy.selectState()
+      cy.creditAndPropertyValue()
+      cy.get('#submit',{timeout:10000}).click();
+      cy.xpath("//*[(@id = 'submitProposal')][.='Preencher dados do cliente']", {timeout:15000})
+      
+    })
+
 
 
 
