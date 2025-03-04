@@ -55,12 +55,7 @@ describe('Criando simulação', () => {
       cy.get('#submit',{timeout:10000}).click();
       cy.xpath("//*[(@id = 'submitProposal')][.='Preencher dados do cliente']", {timeout:15000})
       
-    })
-
-
-
-
-    
+    }) 
 
 })
 

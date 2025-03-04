@@ -72,7 +72,7 @@ Cypress.Commands.add('creditAndPropertyValue', () => {
 Cypress.Commands.add('SubimitAmdCheckSimulation', () => { 
         cy.get('#submit',{timeout:10000}).should('be.visible')
         cy.get('#submit',{timeout:10000}).click();
-        cy.get('#submitProposal',{timeout:15000}).click();
+        cy.get('#submitProposal').click();
 
 })
 

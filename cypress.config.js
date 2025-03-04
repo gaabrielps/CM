@@ -5,7 +5,7 @@ module.exports = defineConfig({
   e2e: {
     viewportWidth: 1920, // Largura da viewport
     viewportHeight: 1080, // Altura da viewport
-    defaultCommandTimeout: 15000,
+    defaultCommandTimeout: 30000,
 
     video: true,  // Garante que o vídeo será gravado
     videosFolder: "cypress/downloads/videos",  // Define a pasta onde os vídeos serão armazenados
