@@ -12,9 +12,27 @@
 
 Botões para atualizar seletor:
 
+-fluxo de clicar em campos de input para digitar (no simulador 3.0 isso não ocorre)
+
 botão de Continuar/Enviar proposta/Concluido (mesmo botoes em diferentes páginas)
 cy.get('.c-gpDDWG-bFQZQM-color-primary')
 
+
 botão de aceitar concentimento dos cookies
  cy.get('#dm876A')
+
+
+Botão completar dados do proponente
+"//a[.='Completar dados']"
+
+Botão de voltar para proposta
+//a[@class="ButtonsStyles__StyledButton-sc-1l8jprn-0 fSXItu styles__Link-sc-jgxc2m-1 gkJOLD"]
+
+
+Quem tem a propriedade do imóvel? (add garantia)
+//label[@class='styles__Label-sc-xzpw9x-2 ceolEL']//span
+
+Informações adicionais sobre o imóvel (add garantia)
+
+
 

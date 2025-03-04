@@ -5,7 +5,7 @@ function gerarDadosPessoais() {
   const cpf = faker.br.cpf();  // Gerar CPF válido
   const email = gerarEmail();  // Gerar email com domínio fixo 'cashmeQA'
   const celular = gerarCelular();  // Gerar número de celular com DDD válido
-  const dataNascimento = gerarDataNascimento();  // Gerar data de nascimento com idade entre 18 e 70 anos
+  const dataNascimento = gerarDataNascimento();  // Gerar data de nascimento com idade entre 19 e 70 anos
 
   // Formatar a data de nascimento como 'DD/MM/YYYY'
   const dia = String(dataNascimento.getDate()).padStart(2, '0'); // Garante dois dígitos
@@ -45,11 +45,11 @@ function gerarCelular() {
   return `(${ddd}) ${numero.slice(0, 5)}-${numero.slice(5)}`;
 }
 
-// Função para gerar uma data de nascimento com idade entre 18 e 70 anos
+// Função para gerar uma data de nascimento com idade entre 19 e 70 anos
 function gerarDataNascimento() {
   const anoAtual = new Date().getFullYear();
   const anoNascimentoMin = anoAtual - 70;
-  const anoNascimentoMax = anoAtual - 18;
+  const anoNascimentoMax = anoAtual - 19;
   const anoNascimento = faker.random.number({ min: anoNascimentoMin, max: anoNascimentoMax });
   const mesNascimento = faker.random.number({ min: 0, max: 11 });
   const diaNascimento = faker.random.number({ min: 1, max: 28 });
