@@ -1,7 +1,7 @@
 import { slowCypressDown } from 'cypress-slow-down'
 slowCypressDown(600)
 
-describe('Criando simulação', () => {
+describe('Criação de Propostas', () => {
     before(() => {
         cy.visit('https://qa-institucional.cashme.com.br/login#ut=CASHMEMBER&ru=https://qa-institucional.cashme.com.br/cashmember&pr=PORTAL_CASHMEMBER')
         cy.get('[data-testid="ds-input-usernameField"]', {timeout:5000}).type('972.807.075-64');
@@ -61,7 +61,7 @@ describe('Criando simulação', () => {
       
 
 
-      
+    
       
     })
 
