@@ -16,6 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import './pages/formSimulation'
 import './pages/formProposal'
+import './pages/listProposals'
 
 
 Cypress.on('uncaught:exception', (err, runnable) => {

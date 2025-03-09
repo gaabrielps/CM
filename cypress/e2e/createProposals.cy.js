@@ -4,12 +4,12 @@ slowCypressDown(600)
 describe('Criando simulação', () => {
     before(() => {
         cy.visit('https://qa-institucional.cashme.com.br/login#ut=CASHMEMBER&ru=https://qa-institucional.cashme.com.br/cashmember&pr=PORTAL_CASHMEMBER')
-        cy.get('[data-testid="ds-input-usernameField"]', {timeout:5000}).type('972.807.075-64');
-        cy.get('[data-testid="ds-input-passwordField"]', {timeout:5000}).type('teste123');
-        cy.get('[data-testid="authentication-button"]', {timeout:5000}).click();
+        cy.get('[data-testid="ds-input-usernameField"]').type('972.807.075-64');
+        cy.get('[data-testid="ds-input-passwordField"]').type('teste123');
+        cy.get('[data-testid="authentication-button"]').click();
 
     
-        cy.get('.onetrust-close-btn-handler',{timeout:5000}).click();
+        cy.get('.onetrust-close-btn-handler').click();
     
         cy.url().then((novaUrl) => {
             Cypress.env('novaURL', novaUrl); // Armazena a URL para uso global nos testes
@@ -31,12 +31,8 @@ describe('Criando simulação', () => {
 
     it('Criação de uma proposta padrão PF', () =>{
 
-      //criando simulação
-      cy.get('[data-testid="Link"]').click()
-      cy.newContactPF()
-      cy.selectState()
-      cy.creditAndPropertyValue()
-      cy.SubimitAmdCheckSimulation()
+      //selecionando uma proposta PF
+      cy.selectProposalsPF()
 
       //criando proposta
       cy.selectProduct()
@@ -56,13 +52,37 @@ describe('Criando simulação', () => {
 
       // finalidade
       cy.creditPurposeAndSendProposals()
+    })
 
+    it('Criação de uma proposta padrão PJ', () =>{
+      //selecionando uma proposta PJ
+      cy.selectProposalsPJ()
 
+      //criando proposta
+      cy.selectProduct()
       
+      //Dados do cliente principal PJ
+      cy.xpath("//a[.='Completar dados']").click()
+      cy.typeCompany()
+      cy.lineOfBusiness()
+      cy.dateCreateCompany()
+      cy.monthlyBilling()
+      cy.registerProperty()
+      cy.saveDatas()
 
+      //socio
+      cy.xpath("//a[normalize-space()='Cadastre o sócio']").click()
+      cy.completeDataClientPJ()
+      cy.registerPartiner()
+      cy.registerProperty()
+      cy.saveDatas()
 
-      
-      
+      //endereço garantia
+      cy.AddProperty()
+      cy.saveDatas()
+
+      // finalidade
+      cy.creditPurposeAndSendProposals()
     })
 
 })

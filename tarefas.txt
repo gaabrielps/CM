@@ -1,38 +1,43 @@
 1. Automatizar checkbox e seletores
-2. Criação de ct para proposta pj
+2. Criação de ct para proposta pj (fazer com que não precise criar simulação)
 3. Comandos para criação de propostas com conjuge
 4. Verificação para criar outros comandos em cada página (temos elementos que não manipulamos ainda)
 5. Criação de BDD
 6. Relatorio 
 7. CI/CD
 8. Traduzir pra ING
+9. Gerenciamento de time
+10. alterar nomes dos casos de teste (INTEGRANDO COM O QASE)
 
 
 
 
 Botões para atualizar seletor:
 
--fluxo de clicar em campos de input para digitar (no simulador 3.0 isso não ocorre)
+fluxo de clicar em campos de input para digitar (no simulador 3.0 isso não ocorre)
 
-botão de Continuar/Enviar proposta/Concluido (mesmo botoes em diferentes páginas)
+2. botão de Continuar/Enviar proposta/Concluido (mesmo botoes em diferentes páginas)
 cy.get('.c-gpDDWG-bFQZQM-color-primary')
 
 
-botão de aceitar concentimento dos cookies
+3. botão de aceitar concentimento dos cookies
  cy.get('#dm876A')
 
 
-Botão completar dados do proponente
+4. Botão completar dados do proponente
 "//a[.='Completar dados']"
 
-Botão de voltar para proposta
+5. Botão de voltar para proposta
 //a[@class="ButtonsStyles__StyledButton-sc-1l8jprn-0 fSXItu styles__Link-sc-jgxc2m-1 gkJOLD"]
 
 
-Quem tem a propriedade do imóvel? (add garantia)
+6. Quem tem a propriedade do imóvel? (add garantia)
 //label[@class='styles__Label-sc-xzpw9x-2 ceolEL']//span
 
-Informações adicionais sobre o imóvel (add garantia)
+7. Informações adicionais sobre o imóvel (add garantia)
+
+8. opções no formuçario de cadastro de um proponente PJ/PF
+//div[@class='styles__Wrapper-sc-127r3zd-0 caUtTN']//li[3]
 
 
 

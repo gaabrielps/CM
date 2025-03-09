@@ -21,7 +21,9 @@ Cypress.Commands.add('goToFormSimulation', () => {
         
 })
 
+Cypress.Commands.add('newContactPF1', () => { 
 
+})
 
 Cypress.Commands.add('newContactPF', () => { 
         //cy.get('.styles__SearchAndNew-sc-11ufqyh-4 > [data-testid="Link"]').click();
@@ -58,7 +60,7 @@ Cypress.Commands.add('newcontactCNPJ', () => {
 
 Cypress.Commands.add('selectState', () => { 
         cy.get('#propertyStateContent').click();
-        cy.get('.styles__OptionsBox-sc-1e4k2kl-6 > :nth-child(5)', {timeout:10000}).click();
+        cy.get('.styles__OptionsBox-sc-1e4k2kl-6 > :nth-child(5)').click();
 })
 
 Cypress.Commands.add('creditAndPropertyValue', () => { 
@@ -70,8 +72,8 @@ Cypress.Commands.add('creditAndPropertyValue', () => {
 })
 
 Cypress.Commands.add('SubimitAmdCheckSimulation', () => { 
-        cy.get('#submit',{timeout:10000}).should('be.visible')
-        cy.get('#submit',{timeout:10000}).click();
+        cy.get('#submit').should('be.visible')
+        cy.get('#submit').click();
         cy.get('#submitProposal').click();
 
 })

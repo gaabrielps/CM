@@ -31,17 +31,35 @@ Cypress.Commands.add('completeDatasPrincipalClient', () => {
     cy.xpath("//*[(@id='complement')]").click()
     cy.xpath("//*[(@id='district')]").click()
     cy.xpath("//button[@data-testid='Button']").click()
-
-
-
-
-
-
 })
 
 Cypress.Commands.add('completeDataClientPF', () => { 
     cy.xpath("//a[.='Completar dados']").click()
     cy.xpath("//span[@for='phoneNumber']").type(dados.celular)
+}) 
+
+Cypress.Commands.add('completeDataClientPJ', () => { 
+    cy.xpath("//span[@for='taxId']").click()
+    cy.xpath("//input[@id='taxId']").type(dados.cpf)
+
+    cy.xpath("//span[@for='name']").click()
+    cy.xpath("//input[@id='name']").type(dados.nomeCompleto)
+
+    cy.xpath("//span[@for='email']").click()
+    cy.xpath("//input[@id='email']").type(dados.email)
+
+    cy.xpath("//span[@for='birthDate']").click()
+    cy.xpath("//input[@id='birthDate']").type(dados.dataNascimento)
+
+    cy.xpath("//span[@for='phoneNumber']").click()
+    cy.xpath("//input[@id='phoneNumber']").type(dados.celular)
+
+    cy.xpath("//span[@for='percentage']").click()
+    cy.xpath("//input[@id='percentage']").type('100')
+
+    cy.xpath("//div[@id='identificationTypeContent']").click()
+    cy.xpath("//li[normalize-space()='Anuente']").click()
+
 }) 
 
 Cypress.Commands.add('registerPartiner', () => {
@@ -60,7 +78,6 @@ Cypress.Commands.add('sourceOfIncome', () => {
 
     cy.xpath("//div[@id='autonomoLineOfBusinessContent']").click()
     cy.xpath("//li[normalize-space()='Vendas']").click()
-
 }) 
 
 Cypress.Commands.add('registerProperty', () => { 
@@ -69,7 +86,6 @@ Cypress.Commands.add('registerProperty', () => {
     cy.wait(5000)
     cy.get('.styles__NumberWrapper-sc-ktpad6-11 > [data-testid="Input"] > [data-testid="InputWrapper"] > .commonStyles__BaseLabel-sc-1fwn9w0-2').click()
     cy.xpath("//input[@id='number']").type("242")
-
 }) 
 
 Cypress.Commands.add('monthlyIncome', () => { 
@@ -84,13 +100,12 @@ Cypress.Commands.add('AddProperty', () => {
     cy.xpath("//div[@id='propertyTypeContent']").click()
     cy.xpath("//li[normalize-space()='Casa']").click()
 
-    cy.xpath("//label[@class='styles__Label-sc-xzpw9x-2 ceolEL']//span").click()
+    cy.xpath("(//input[@name='owners']/parent::label//span)[1]").click()
 
-    cy.xpath("//label[@id='labeloptionfalse-rented']//div[@class='styles__CardHeader-sc-8nqthy-3 gJPcMW']").click()
-    cy.xpath("//label[@id='labeloptionfalse-financed']//div[@class='styles__CardHeader-sc-8nqthy-3 gJPcMW']").click()
-    cy.xpath("//label[@id='labeloptionfalse-debits']//div[@class='styles__CardHeader-sc-8nqthy-3 gJPcMW']").click()
-    
 
+    cy.xpath("//label[@id='labeloptionfalse-rented']").click()
+    cy.xpath("//label[@id='labeloptionfalse-financed']").click()
+    cy.xpath("//label[@id='labeloptionfalse-debits']").click()
 })
 
 Cypress.Commands.add('saveDatas', () => { 
@@ -104,5 +119,24 @@ Cypress.Commands.add('creditPurposeAndSendProposals', () => {
     cy.xpath("//form[@action='#']//button[@id='creditPurposeLabel creditPurposeContent']").click()
     cy.xpath("//button[@class='styles__Wrapper-sc-a9x515-0 dNJcoh styles__SubmitionButton-sc-1s1s719-3 jqGOXn']").click()
     cy.xpath("//button[@id='alertPrimaryButton']").click()
+})
 
+Cypress.Commands.add('typeCompany', () => { //typo de empresa
+    cy.xpath("//div[@id='companyTypeContent']").click()
+    cy.xpath("//li[normalize-space()='Sociedade Individual']").click()
+})
+
+Cypress.Commands.add('lineOfBusiness', () => { //ramo de atuação
+    cy.xpath("//div[@id='lineOfBusinessContent']").click()
+    cy.xpath("//li[normalize-space()='Vendas']").click()
+})
+
+Cypress.Commands.add('dateCreateCompany', () => { //data de abertura da empresa
+    cy.xpath("//div[@id='lifespanContent']").click()
+    cy.xpath("//li[normalize-space()='Entre 1 há 3 anos']").click()
+})
+
+Cypress.Commands.add('monthlyBilling', () => { //faturamento mensal
+    cy.xpath("//div[@id='monthlyBillingContent']").click()
+    cy.xpath("//div[@class='styles__Wrapper-sc-127r3zd-0 caUtTN']//li[3]").click()
 })

@@ -40,7 +40,7 @@ function gerarNomeCompleto() {
 
 // Função para gerar um celular com DDD válido e número começando com 9
 function gerarCelular() {
-  const ddd = faker.random.number({ min: 11, max: 99 }); // DDD válido
+  const ddd = faker.random.number({ min: 11, max: 12 }); // DDD válido
   const numero = '9' + faker.random.number({ min: 10000000, max: 99999999 }); // Número de celular válido
   return `(${ddd}) ${numero.slice(0, 5)}-${numero.slice(5)}`;
 }
