@@ -62,10 +62,34 @@ Cypress.Commands.add('completeDataClientPJ', () => {
 
 }) 
 
-Cypress.Commands.add('registerPartiner', () => {
+Cypress.Commands.add('registerPartiner', (maritalStatus) => {
     // tornar aletório
     cy.xpath("//div[@id='maritalStatusContent']").click()
-    cy.xpath("//li[normalize-space()='Solteiro(a)']").click()
+    cy.xpath(`//li[normalize-space()='${maritalStatus}']`).click()
+}) 
+
+Cypress.Commands.add('registerSpouse', () => {
+    // tornar aletório
+    cy.xpath("//a[.='Cadastre o cônjuge']").click()
+    cy.xpath("//span[@for='taxId']").click()
+    cy.xpath("//input[@id='taxId']").type(dados.cpf)
+
+    cy.xpath("//span[@for='name']").click()
+    cy.xpath("//input[@id='name']").type(dados.nomeCompleto)
+
+    cy.xpath("//span[@for='email']").click()
+    cy.xpath("//input[@id='email']").type(dados.email)
+
+    cy.xpath("//span[@for='birthDate']").click()
+    cy.xpath("//input[@id='birthDate']").type(dados.dataNascimento)
+
+    cy.xpath("//span[@for='phoneNumber']").click()
+    cy.xpath("//input[@id='phoneNumber']").type(dados.celular)
+
+    cy.xpath("//div[@id='identificationTypeContent']").click()
+    cy.xpath("//li[normalize-space()='Anuente']").click()
+
+    cy.xpath("//input[@id='sameAddress']").click()
 }) 
 
 Cypress.Commands.add('sourceOfIncome', () => { 
