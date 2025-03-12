@@ -100,6 +100,22 @@ Cypress.Commands.add('selectLack', () => {
  //carencia
 })
 
+Cypress.Commands.add('simulationPF', () => { 
+        cy.get('[data-testid="Link"]').click()
+        cy.newContactPF()
+        cy.selectState()
+        cy.creditAndPropertyValue()
+        cy.SubimitAmdCheckSimulation()
+})
+
+Cypress.Commands.add('simulationPJ', () => { 
+        cy.get('[data-testid="Link"]').click()
+        cy.newcontactCNPJ()
+        cy.selectState()
+        cy.creditAndPropertyValue()
+        cy.SubimitAmdCheckSimulation()
+})
+
 
 
 

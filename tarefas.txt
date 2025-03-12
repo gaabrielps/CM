@@ -3,7 +3,6 @@
 3. Comandos para criação de propostas com conjuge
 4. Verificação para criar outros comandos em cada página (temos elementos que não manipulamos ainda)
 5. Criação de BDD
-6. Relatorio 
 7. CI/CD
 8. Traduzir pra ING
 9. Gerenciamento de time
