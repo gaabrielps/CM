@@ -2,7 +2,6 @@ const { gerarDadosPessoais } = require('../dataGenerator/generatePerson');
 const { gerarDadosEmpresa } = require('../dataGenerator/generateCompany');
 const { propertyValue, credit } = require('../dataGenerator/values');
 
-const dados = gerarDadosPessoais()
 const dadosCNPJ = gerarDadosEmpresa()
 Cypress.Commands.add('goToFormSimulation', () => { 
         
@@ -21,11 +20,10 @@ Cypress.Commands.add('goToFormSimulation', () => {
         
 })
 
-Cypress.Commands.add('newContactPF1', () => { 
 
-})
 
 Cypress.Commands.add('newContactPF', () => { 
+        const dados = gerarDadosPessoais()
         //cy.get('.styles__SearchAndNew-sc-11ufqyh-4 > [data-testid="Link"]').click();
         cy.get('.styles__GridSimulation-sc-16mlk6i-1 > :nth-child(1) > [data-testid="InputWrapper"] > .commonStyles__BaseLabel-sc-1fwn9w0-2').click();
         cy.get('.styles__GridSimulation-sc-16mlk6i-1 > :nth-child(1) > [data-testid="InputWrapper"] > [data-testid="Real-Input"]').type(dados.cpf);

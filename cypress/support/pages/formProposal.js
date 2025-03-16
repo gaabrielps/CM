@@ -1,7 +1,6 @@
 const { gerarDadosPessoais } = require('../dataGenerator/generatePerson');
 
 
-const dados = gerarDadosPessoais()
 
 Cypress.Commands.add('selectProduct', () => {
 
@@ -10,6 +9,8 @@ Cypress.Commands.add('selectProduct', () => {
 })
 
 Cypress.Commands.add('completeDatasPrincipalClient', () => {
+    
+
     cy.xpath("//a[.='Completar dados']").click()
 
     //tipo de empresa
@@ -34,11 +35,14 @@ Cypress.Commands.add('completeDatasPrincipalClient', () => {
 })
 
 Cypress.Commands.add('completeDataClientPF', () => { 
+    const dados = gerarDadosPessoais()
+
     cy.xpath("//a[.='Completar dados']").click()
     cy.xpath("//span[@for='phoneNumber']").type(dados.celular)
 }) 
 
-Cypress.Commands.add('completeDataClientPJ', () => { 
+Cypress.Commands.add('completeDataClientPJ', () => {
+    const dados = gerarDadosPessoais()
     cy.xpath("//span[@for='taxId']").click()
     cy.xpath("//input[@id='taxId']").type(dados.cpf)
 
@@ -69,22 +73,24 @@ Cypress.Commands.add('registerPartiner', (maritalStatus) => {
 }) 
 
 Cypress.Commands.add('registerSpouse', () => {
+    const dadosConjuge = gerarDadosPessoais()
+
     // tornar aletório
     cy.xpath("//a[.='Cadastre o cônjuge']").click()
     cy.xpath("//span[@for='taxId']").click()
-    cy.xpath("//input[@id='taxId']").type(dados.cpf)
+    cy.xpath("//input[@id='taxId']").type(dadosConjuge.cpf)
 
     cy.xpath("//span[@for='name']").click()
-    cy.xpath("//input[@id='name']").type(dados.nomeCompleto)
+    cy.xpath("//input[@id='name']").type(dadosConjuge.nomeCompleto)
 
     cy.xpath("//span[@for='email']").click()
-    cy.xpath("//input[@id='email']").type(dados.email)
+    cy.xpath("//input[@id='email']").type(dadosConjuge.email)
 
     cy.xpath("//span[@for='birthDate']").click()
-    cy.xpath("//input[@id='birthDate']").type(dados.dataNascimento)
+    cy.xpath("//input[@id='birthDate']").type(dadosConjuge.dataNascimento)
 
     cy.xpath("//span[@for='phoneNumber']").click()
-    cy.xpath("//input[@id='phoneNumber']").type(dados.celular)
+    cy.xpath("//input[@id='phoneNumber']").type(dadosConjuge.celular)
 
     cy.xpath("//div[@id='identificationTypeContent']").click()
     cy.xpath("//li[normalize-space()='Anuente']").click()
