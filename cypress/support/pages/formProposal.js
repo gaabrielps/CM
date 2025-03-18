@@ -147,7 +147,8 @@ Cypress.Commands.add('creditPurposeAndSendProposals', () => {
     cy.xpath("//form[@action='#']//div[@id='creditPurposeContent']").click()
     cy.xpath("//input[@id='creditPurposecheckboxINVESTMENT']").click()
     cy.xpath("//form[@action='#']//button[@id='creditPurposeLabel creditPurposeContent']").click()
-    cy.xpath("//button[@class='styles__Wrapper-sc-a9x515-0 dNJcoh styles__SubmitionButton-sc-1s1s719-3 jqGOXn']").click()
+    cy.xpath("//button[@type='button']//p[.='Enviar proposta']").click()
+    cy.xpath("//h1[.='A proposta já pode ser enviada!']").should('be.visible')
     cy.xpath("//button[@id='alertPrimaryButton']").click()
 })
 

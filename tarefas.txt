@@ -1,3 +1,7 @@
+* atualizar envio de proposta, verificar mensagem se foi enviada ou não
+* minimizar o uso de seletores que podem ser atualizados futuramente
+
+
 1. Automatizar checkbox e seletores
 2. Criação de ct para proposta pj (fazer com que não precise criar simulação)
 3. Comandos para criação de propostas com conjuge

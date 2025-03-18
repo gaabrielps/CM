@@ -110,6 +110,7 @@ describe('Criando de propostas', () => {
       cy.saveDatas()
 
 
+
       // finalidade
       cy.creditPurposeAndSendProposals()
     })
