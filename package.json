@@ -5,6 +5,7 @@
     "cypress-xpath": "^2.0.1"
   },
   "dependencies": {
+    "cypress-plugin-xhr-toggle": "^1.2.1",
     "cypress-real-events": "^1.14.0",
     "faker-br": "^0.4.1"
   }

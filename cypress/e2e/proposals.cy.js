@@ -1,12 +1,12 @@
+import { Selectors } from '../support/selectors';
 import { slowCypressDown } from 'cypress-slow-down'
 slowCypressDown(600)
 
 describe('Criando de propostas', () => {
     before(() => {
-        cy.visit('https://qa-institucional.cashme.com.br/login#ut=CASHMEMBER&ru=https://qa-institucional.cashme.com.br/cashmember&pr=PORTAL_CASHMEMBER')
-        cy.get('[data-testid="ds-input-usernameField"]').type('972.807.075-64');
-        cy.get('[data-testid="ds-input-passwordField"]').type('teste123');
-        cy.get('[data-testid="authentication-button"]').click();
+      
+        cy.visit('https://qa-institucional.cashme.com.br/login#ut=CASHMEMBER&ru=https://qa-institucional.cashme.com.br/cashmember&pr=PORTAL_CASHMEMBER');
+        cy.login('responsavel')
 
     
         cy.get('.onetrust-close-btn-handler').click();
@@ -23,10 +23,10 @@ describe('Criando de propostas', () => {
           cy.visit(url); // Visita a nova URL antes de cada teste
           cy.visit(url); // Visita a nova URL antes de cada teste
         });
-        cy.get('.styles__Content-sc-197l48d-5 > [data-testid="Link"]',{timeout:5000}).click();
-        cy.get('.styles__Content-sc-197l48d-5 > [data-testid="Link"]',{timeout:5000}).click();
-        cy.get('.styles__Content-sc-197l48d-5 > [data-testid="Link"]',{timeout:5000}).click();
-        cy.get('.styles__Content-sc-197l48d-5 > [data-testid="Link"]',{timeout:5000}).click();
+        cy.get(Selectors.incio.modalAfterLogin).click();
+        cy.get(Selectors.incio.modalAfterLogin).click();
+        cy.get(Selectors.incio.modalAfterLogin).click();
+        cy.get(Selectors.incio.modalAfterLogin).click();
       });
 
     it('Criação de uma proposta padrão PF', () =>{

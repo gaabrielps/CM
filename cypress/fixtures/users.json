@@ -1,0 +1,17 @@
+{
+  "responsavel": {
+    "cpf": "972.807.075-64",
+    "password": "teste123",
+    "role": "Responsável"
+  },
+  "administrador": {
+    "cpf": "972.807.075-64",
+    "password": "teste123",
+    "role": "Responsável"
+  },
+  "operador": {
+    "cpf": "972.807.075-64",
+    "password": "teste123",
+    "role": "Responsável"
+  }
+}

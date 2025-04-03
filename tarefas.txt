@@ -1,5 +1,6 @@
-* atualizar envio de proposta, verificar mensagem se foi enviada ou não
-* minimizar o uso de seletores que podem ser atualizados futuramente
+
+* minimizar o uso de seletores que podem ser atualizados futuramente (Fazer arquivo de seletores)
+* ajustar dados genericos (nome da empresa, ddd de telefone e data de nascimento, valores diferentes a cada proposta, valor de renda mensal) 
 
 
 1. Automatizar checkbox e seletores

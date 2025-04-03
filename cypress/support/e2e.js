@@ -11,12 +11,16 @@
 //
 // You can read more here:
 // https://on.cypress.io/configuration
-// ***********************************************************
+// ************************************************
+
+// ***********
+import 'cypress-plugin-xhr-toggle'
 
 // Import commands.js using ES2015 syntax:
 import './pages/formSimulation'
 import './pages/formProposal'
 import './pages/listProposals'
+import './pages/login'
 
 
 Cypress.on('uncaught:exception', (err, runnable) => {
