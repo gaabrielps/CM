@@ -1,9 +1,9 @@
 
-* minimizar o uso de seletores que podem ser atualizados futuramente (Fazer arquivo de seletores)
 * ajustar dados genericos (nome da empresa, ddd de telefone e data de nascimento, valores diferentes a cada proposta, valor de renda mensal) 
+* validar criação de uma proposta quando encaminhar para formulário de proposta
+* validar criação de proposta e simulação via api
 
 
-1. Automatizar checkbox e seletores
 2. Criação de ct para proposta pj (fazer com que não precise criar simulação)
 3. Comandos para criação de propostas com conjuge
 4. Verificação para criar outros comandos em cada página (temos elementos que não manipulamos ainda)
@@ -18,10 +18,9 @@
 
 Botões para atualizar seletor:
 
-fluxo de clicar em campos de input para digitar (no simulador 3.0 isso não ocorre)
+'Mostrar mais 10 simulações' n tem ID
 
-2. botão de Continuar/Enviar proposta/Concluido (mesmo botoes em diferentes páginas)
-cy.get('.c-gpDDWG-bFQZQM-color-primary')
+
 
 
 3. botão de aceitar concentimento dos cookies

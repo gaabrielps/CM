@@ -6,11 +6,23 @@ import { Selectors } from '../selectors';
 
 
 const dadosCNPJ = gerarDadosEmpresa()
+
 Cypress.Commands.add('goToFormSimulation', () => { 
         cy.pause()
-
         //verificar dados da proposta aberta
         cy.get(':nth-child(2) > :nth-child(1) > [data-testid="Title"]',{timeout:5000}).contains(dados.nomeCompleto).should('exist');   
+})
+
+Cypress.Commands.add('acessarSimulacoes', () => { 
+        cy.get(Selectors.incio.paginaSimulacao).invoke('show').click()
+})
+
+Cypress.Commands.add('acessarPropostas', () => { 
+        cy.get(Selectors.incio.paginaProposta).invoke('show').click()        
+})
+
+Cypress.Commands.add('acessarGerenciamentoTimes', () => { 
+        cy.get(Selectors.incio.paginaGerenciamentoEquipe).invoke('show').click()
 })
 
 
@@ -66,9 +78,17 @@ Cypress.Commands.add('creditAndPropertyValue', () => { //Inserir valor do imóve
         cy.get('.styles__InputWrapper-sc-92bf0q-1 > :nth-child(2) > [data-testid="InputWrapper"] > [data-testid="Real-Input"]').type(propertyValue)
 })
 
-Cypress.Commands.add('SubimitAmdCheckSimulation', () => { //Calcular simulação e enviar proposta
+Cypress.Commands.add('calculoSimulacao', () => { //Calcular simulação 
         cy.get(Selectors.simulationForm.botaoCalcularSIM).click()
+        cy.get(Selectors.simulationForm.botaoTransformarPRO).should('be.visible')
+        
+})
+
+Cypress.Commands.add('transformarProposta', () => { //Enviar proposta 
+        cy.get(Selectors.simulationForm.botaoTransformarPRO).should('be.visible')
         cy.get(Selectors.simulationForm.botaoTransformarPRO).click()
+        cy.get("[id='creditPurposeLabel creditPurposeContent']").should('be.visible')
+
 })
 
 Cypress.Commands.add('selectCorrection', (correcao) => { //Correção
@@ -83,11 +103,6 @@ Cypress.Commands.add('selectAmortization', (amortizador) => { //Amortização
         cy.xpath(Selectors.simulationForm.tipoAmortizacao(amortizador)).should('exist').click();
 })
 
-Cypress.Commands.add('goToProposal', () => {
-        //check information about proposal
-        cy.get('#submitProposal', {timeout: 15000}).should('be.visible')
-        cy.get('#submitProposal', {timeout: 15000}).click()
-})
 
 Cypress.Commands.add('selectLack', () => { 
  //carencia
@@ -101,7 +116,9 @@ Cypress.Commands.add('simulationPF', () => {
         cy.selectCorrection('Post')
         cy.selectIndex('CDI')
         cy.selectAmortization('Sac')
-        cy.SubimitAmdCheckSimulation()
+        cy.calculoSimulacao()
+        cy.transformarProposta()
+  
 })
 
 Cypress.Commands.add('simulationPJ', () => { 
@@ -112,7 +129,8 @@ Cypress.Commands.add('simulationPJ', () => {
         cy.selectCorrection('Post')
         cy.selectIndex('CDI')
         cy.selectAmortization('Sac')
-        cy.SubimitAmdCheckSimulation()
+        cy.calculoSimulacao()
+        cy.transformarProposta()  
 })
 
 

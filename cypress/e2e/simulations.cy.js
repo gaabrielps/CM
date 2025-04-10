@@ -2,20 +2,14 @@ import { slowCypressDown } from 'cypress-slow-down'
 import { Selectors } from '../support/selectors';
 slowCypressDown(600)
 
-describe('Criação de simulações', () => {
+describe('Validar fluxos na criação de simulações', () => {
     before(() => {
         cy.visit('https://qa-institucional.cashme.com.br/login#ut=CASHMEMBER&ru=https://qa-institucional.cashme.com.br/cashmember&pr=PORTAL_CASHMEMBER')
-        cy.login('responsavel')
-
-
-    
+        cy.login('responsavel') 
         cy.get('.onetrust-close-btn-handler',{timeout:5000}).click();
-    
         cy.url().then((novaUrl) => {
             Cypress.env('novaURL', novaUrl); // Armazena a URL para uso global nos testes
-          });
-
-          
+          });    
     })
 
     beforeEach(() => {
@@ -37,7 +31,8 @@ describe('Criação de simulações', () => {
       cy.selectCorrection('Post')
       cy.selectIndex('CDI')
       cy.selectAmortization('Sac')
-      cy.SubimitAmdCheckSimulation()
+      cy.calculoSimulacao()
+      cy.transformarProposta()
       
     })
 
@@ -49,7 +44,9 @@ describe('Criação de simulações', () => {
       cy.selectCorrection('Post')
       cy.selectIndex('CDI')
       cy.selectAmortization('Sac')
-      cy.SubimitAmdCheckSimulation()
+      cy.calculoSimulacao()
+      cy.transformarProposta()
+
       
     })
 
@@ -63,6 +60,38 @@ describe('Criação de simulações', () => {
       
     }) 
 
+}),
+
+describe('Validar fluxos na listagem de simulações', () => {
+  before(() => {
+      cy.visit('https://qa-institucional.cashme.com.br/login#ut=CASHMEMBER&ru=https://qa-institucional.cashme.com.br/cashmember&pr=PORTAL_CASHMEMBER')
+      cy.login('responsavel')
+      cy.get('.onetrust-close-btn-handler',{timeout:5000}).click();
+      cy.url().then((novaUrl) => {
+          Cypress.env('novaURL', novaUrl); // Armazena a URL para uso global nos testes
+        });     
+  })
+
+  beforeEach(() => {
+      cy.wrap(Cypress.env('novaURL')).then((url) => {
+        cy.visit(url); // Visita a nova URL antes de cada teste
+        cy.visit(url); // Visita a nova URL antes de cada teste
+      });
+      cy.get(Selectors.incio.modalAfterLogin).click();
+      cy.get(Selectors.incio.modalAfterLogin).click();
+      cy.get(Selectors.incio.modalAfterLogin).click();
+      cy.get(Selectors.incio.modalAfterLogin).click();
+    });
+
+    it('Verificar fluxo de edição de uma simulação', () =>{
+      cy.acessarSimulacoes()
+      cy.xpath(Selectors.listaSimulacoes.verOpcoes).click()
+      cy.xpath(Selectors.listaSimulacoes.editar).click()
+      cy.selectState('São Paulo')
+      cy.calculoSimulacao()
+      cy.transformarProposta()
+    }) 
+  
 })
 
 
